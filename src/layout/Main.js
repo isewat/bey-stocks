@@ -1,6 +1,7 @@
 import { AppBar, Toolbar, Drawer, Typography, List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
 import TextFieldsIcon from '@material-ui/icons/TextFields';
 import WidgetsIcon from '@material-ui/icons/Widgets';
+import AccountTreeIcon from '@material-ui/icons/AccountTree';
 import { makeStyles } from '@material-ui/styles';
 import { useHistory, useLocation } from 'react-router-dom'
 
@@ -68,6 +69,18 @@ const menuItems = [
       }
     }
   },
+  {
+    text: 'Test',
+    icon: <AccountTreeIcon color="primary" />,
+    location: {
+      pathname: '/test',
+      state: {
+        title: 'Test Page'
+      }
+    }
+  },
+
+  
 ];
 
 const MainLayout = ({ children }) => {

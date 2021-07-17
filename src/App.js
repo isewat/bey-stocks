@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { theme } from './styles/theme';
 import TypographyDemo from './pages/TypographyDemo';
 import ComponentDemo from './pages/ComponentDemo';
+import TestPage from './pages/Test';
 
 function App() {
   return (
@@ -15,8 +16,11 @@ function App() {
             <Route exact path="/">
               <TypographyDemo />
             </Route>
-            <Route exact path="/component-demo">
+            <Route path="/component-demo">
               <ComponentDemo />
+            </Route>
+            <Route path="/test">
+              <TestPage />
             </Route>
           </Switch>
         </MainLayout>
