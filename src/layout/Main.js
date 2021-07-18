@@ -1,9 +1,12 @@
+import React, { useContext } from 'react';
 import { AppBar, Toolbar, Drawer, Typography, List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
 import TextFieldsIcon from '@material-ui/icons/TextFields';
 import WidgetsIcon from '@material-ui/icons/Widgets';
 import AccountTreeIcon from '@material-ui/icons/AccountTree';
+import PersonIcon from '@material-ui/icons/Person';
 import { makeStyles } from '@material-ui/styles';
 import { useHistory, useLocation } from 'react-router-dom'
+import { AuthContext } from '../context/Auth';
 
 const drawerWidth = 240;
 
@@ -49,6 +52,26 @@ const useStyles = makeStyles((theme) => ({
 
 const menuItems = [
   {
+    text: 'Registrieren',
+    icon: <PersonIcon color="primary" />,
+    location: {
+      pathname: '/signup',
+      state: {
+        title: 'Registrieren'
+      }
+    }
+  },
+  {
+    text: 'Anmelden',
+    icon: <PersonIcon color="primary" />,
+    location: {
+      pathname: '/signin',
+      state: {
+        title: 'Anmelden'
+      }
+    }
+  },
+  {
     text: 'Typography Demo',
     icon: <TextFieldsIcon color="primary" />,
     location: {
@@ -57,7 +80,6 @@ const menuItems = [
         title: 'Typography Demo'
       }
     }
-
   },
   {
     text: 'Component Demo',
@@ -80,13 +102,15 @@ const menuItems = [
     }
   },
 
-  
+
 ];
 
 const MainLayout = ({ children }) => {
   const classes = useStyles();
   const history = useHistory();
   const location = useLocation();
+  const { user } = useContext(AuthContext);
+
   return (
     <div className={classes.root}>
       <AppBar
@@ -97,6 +121,7 @@ const MainLayout = ({ children }) => {
       >
         <Toolbar>
           <Typography variant="h5">{location.state?.title || '[Page title]'}</Typography>
+          <Typography>{user?.email || 'Not logged in'}</Typography>
         </Toolbar>
       </AppBar>
       <Drawer
