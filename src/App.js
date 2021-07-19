@@ -6,6 +6,8 @@ import { theme } from './styles/theme';
 import TypographyDemo from './pages/TypographyDemo';
 import ComponentDemo from './pages/ComponentDemo';
 import TestPage from './pages/Test';
+import activities from "./pages/activities";
+import index from "./index";
 
 function App() {
   return (
