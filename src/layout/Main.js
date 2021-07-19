@@ -79,6 +79,16 @@ const menuItems = [
       }
     }
   },
+  {
+    text: "Depot",
+    icon: <AccountTreeIcon color="primary" />,
+    location: {
+      pathname: "/depot",
+      state: {
+        title: "Depot"
+      }
+    }
+  }
 
   
 ];

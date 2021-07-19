@@ -8,6 +8,7 @@ import ComponentDemo from './pages/ComponentDemo';
 import TestPage from './pages/Test';
 import activities from "./pages/activities";
 import index from "./index";
+import Depot from "./pages/Depot";
 
 function App() {
   return (
@@ -23,6 +24,9 @@ function App() {
             </Route>
             <Route path="/test">
               <TestPage />
+            </Route>
+            <Route path="/depot">
+              <Depot></Depot>
             </Route>
           </Switch>
         </MainLayout>
