@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { TextField, Button } from '@material-ui/core';
-import { AuthContext } from '../context/Auth';
+import { AuthContext } from '../../context/Auth';
 
 const SignUp = () => {
   const [email, setEmail] = useState('');
