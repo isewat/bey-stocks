@@ -19,6 +19,11 @@ const authReducer = (state, action) => {
         isAuthenticating: false,
         user: null
       }
+    case 'SET_AUTHENTICATING':
+      return {
+        ...state,
+        isAuthenticating: action.payload
+      }
     case 'SIGNUP':
     case 'SIGNIN':
     case 'SIGNOUT':
@@ -44,6 +49,7 @@ export const AuthContextProvider = ({ children }) => {
   useEffect(() => {
     firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
     return firebase.auth().onAuthStateChanged((user) => {
+      console.log('onAuthStateChanged');
       dispatch({ type: 'SET_USER', payload: user });
     });
   }, [])
@@ -55,6 +61,8 @@ export const AuthContextProvider = ({ children }) => {
     } catch (err) {
       console.error(err);
       dispatch({ type: 'SET_ERROR', payload: err.message });
+    } finally {
+      dispatch({ type: 'SET_AUTHENTICATING', payload: false });
     }
   }
 
@@ -65,6 +73,8 @@ export const AuthContextProvider = ({ children }) => {
     } catch (err) {
       console.error(err);
       dispatch({ type: 'SET_ERROR', payload: err.message });
+    } finally {
+      dispatch({ type: 'SET_AUTHENTICATING', payload: false });
     }
   }
 
@@ -75,6 +85,8 @@ export const AuthContextProvider = ({ children }) => {
     } catch (err) {
       console.error(err);
       dispatch({ type: 'SET_ERROR', payload: err.message });
+    } finally {
+      dispatch({ type: 'SET_AUTHENTICATING', payload: false });
     }
   }
 
