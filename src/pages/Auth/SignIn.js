@@ -1,17 +1,16 @@
 import { useContext, useState } from 'react';
-import { Button, TextField } from '@material-ui/core';
+import { Button, TextField, FormControl, FormControlLabel, Paper } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import { AuthContext } from '../../context/Auth';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  loginBox: {
     display: 'flex',
-    flexDirection: 'column'
-  }
+    flexDirection: 'column',
+    padding: theme.spacing(2),
+
+  },
+
 }));
 
 const SignIn = () => {
@@ -21,30 +20,40 @@ const SignIn = () => {
   const { isAuthenticating, signIn, authError } = useContext(AuthContext);
 
   return (
-    <div className={classes.root}>
-      <div className={classes.loginBox}>
+    // <div className={classes.root}>
+    <Paper elevation={6} className={classes.root}>
+      <FormControl>
         <TextField
           required
           label="E-Mail"
           value={email}
           onChange={(e) => { setEmail(e.target.value) }}
         />
+        <FormControlLabel>test</FormControlLabel>
+      </FormControl>
+      <FormControl>
         <TextField
           required
           label="Passwort"
           value={password}
           onChange={(e) => { setPassword(e.target.value) }}
         />
-        <Button
-          disabled={isAuthenticating}
-          onClick={() => {
-            signIn(email, password)
-          }}
-        >
-          Registrieren
-        </Button>
-      </div>
-    </div>
+      </FormControl>
+
+
+      <Button
+        variant="contained"
+        color="secondary"
+        disabled={isAuthenticating}
+        onClick={() => {
+          signIn(email, password)
+        }}
+      >
+        Login
+      </Button>
+      {authError}
+    </Paper>
+    // </div>
   )
 }
 

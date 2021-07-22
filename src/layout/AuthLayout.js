@@ -1,6 +1,19 @@
+import { makeStyles } from '@material-ui/core';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+    height: '100vh',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: theme.palette.primary.main,
+  }
+}));
+
 const AuthLayout = ({ children }) => {
+  const classes = useStyles();
   return (
-    <div style={{ minWidth: '100%', minHeight: '100%', justifyContent: 'center', alignItems: 'center', backgroundColor: 'yellow' }}>
+    <div className={classes.root}>
       {children}
     </div>
   )
