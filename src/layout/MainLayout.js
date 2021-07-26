@@ -1,8 +1,9 @@
+import { useContext } from 'react';
 import { makeStyles } from '@material-ui/styles';
-import { useLocation } from 'react-router-dom'
 import MainNav from './MainNav';
 import { menuItems } from './menu-items';
 import MainAppBar from './MainAppBar';
+import { AppStateContext } from '../context/AppState';
 
 const drawerWidth = 240;
 
@@ -38,13 +39,13 @@ const useStyles = makeStyles((theme) => ({
 
 const MainLayout = ({ children }) => {
   const classes = useStyles();
-  const location = useLocation();
+  const { pageTitle } = useContext(AppStateContext);
 
   return (
     <div className={classes.root}>
       <MainAppBar
         offset={drawerWidth}
-        pageTitle={location.state?.title}
+        pageTitle={pageTitle}
       />
       <MainNav menuItems={menuItems} />
 

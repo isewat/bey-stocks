@@ -5,7 +5,7 @@ import TypographyDemo from '../pages/TypographyDemo';
 import ComponentDemo from '../pages/ComponentDemo';
 import SignUp from '../pages/Auth/SignUp';
 import SignIn from '../pages/Auth/SignIn';
-import TestPage from '../pages/Test';
+import PrivateDemo from '../pages/PrivateDemo';
 import AuthLayout from '../layout/AuthLayout';
 
 const MainRoutes = () => {
@@ -14,7 +14,7 @@ const MainRoutes = () => {
       <RouteWithLayout exact path="/">
         <TypographyDemo />
       </RouteWithLayout>
-      <RouteWithLayout path="/signup">
+      <RouteWithLayout layoutComponent={AuthLayout} path="/signup">
         <SignUp />
       </RouteWithLayout>
       <RouteWithLayout layoutComponent={AuthLayout} path="/signin">
@@ -23,8 +23,8 @@ const MainRoutes = () => {
       <RouteWithLayout path="/component-demo">
         <ComponentDemo />
       </RouteWithLayout>
-      <RouteWithLayout path="/test">
-        <TestPage />
+      <RouteWithLayout auth="private" path="/private">
+        <PrivateDemo />
       </RouteWithLayout>
     </Switch>
   )

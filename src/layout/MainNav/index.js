@@ -1,7 +1,10 @@
 
+import { useContext } from 'react';
 import { Drawer, Typography, List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
+import LockIcon from '@material-ui/icons/Lock';
 import { makeStyles } from '@material-ui/styles';
-import { useHistory, useLocation } from 'react-router-dom'
+import { useHistory, useLocation } from 'react-router-dom';
+import { AuthContext } from '../../context/Auth';
 
 const defaultDrawerWidth = 240;
 
@@ -11,7 +14,6 @@ const useStyles = makeStyles((theme) => ({
   },
   drawerPaper: {
     width: props => props.drawerWidth,
-    // backgroundColor: theme.palette.secondary.light
   },
   active: {
     background: '#f4f4f4'
@@ -26,6 +28,8 @@ const MainNav = ({ menuItems, drawerWidth = defaultDrawerWidth }) => {
   const classes = useStyles({ drawerWidth });
   const history = useHistory();
   const location = useLocation();
+  const { user } = useContext(AuthContext);
+
   return (
     <Drawer
       variant="permanent"
@@ -41,17 +45,21 @@ const MainNav = ({ menuItems, drawerWidth = defaultDrawerWidth }) => {
         </Typography>
       </div>
       <List>
-        {menuItems.map((item) => (
-          <ListItem
-            button
-            key={item.text}
-            onClick={() => history.push(item.location)}
-            className={location.pathname === item.location.pathname ? classes.active : null}
-          >
-            <ListItemIcon>{item.icon}</ListItemIcon>
-            <ListItemText primary={item.text} />
-          </ListItem>
-        ))}
+        {menuItems.map((item) => {
+          const locked = !user && item.private === true;
+          return (
+            <ListItem
+              disabled={locked}
+              button
+              key={item.text}
+              onClick={() => history.push(item.location)}
+              className={location.pathname === item.location.pathname ? classes.active : null}
+            >
+              <ListItemIcon>{locked ? <LockIcon /> : item.icon}</ListItemIcon>
+              <ListItemText primary={item.text} />
+            </ListItem>
+          )
+        })}
       </List>
     </Drawer>
   )

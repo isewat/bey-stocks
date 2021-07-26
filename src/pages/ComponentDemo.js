@@ -1,9 +1,10 @@
-import React from 'react';
+import { useContext, useEffect } from 'react';
 import { Typography, Button, Grid, Divider, TextField, Slider } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 import EditIcon from '@material-ui/icons/Edit';
+import { AppStateContext } from '../context/AppState';
 
 const useStyles = makeStyles((theme) => ({
   containerTitle: {
@@ -27,7 +28,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const marks = [
-
   {
     value: 10,
     label: '1.000 €',
@@ -44,6 +44,11 @@ const marks = [
 
 const ComponentDemo = () => {
   const classes = useStyles();
+  const { setPageTitle } = useContext(AppStateContext);
+  useEffect(() => {
+    setPageTitle('Component Demo');
+    // return () => { setPageTitle('') }
+  }, [setPageTitle]);
   return (
     <div>
       <Typography variant="h4" className={classes.containerTitle}>Buttons</Typography>

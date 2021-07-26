@@ -1,8 +1,14 @@
-import React from 'react';
+import { useEffect, useContext } from 'react';
 import { Typography, Divider } from '@material-ui/core';
 import { loremIpsum } from '../constants';
+import { AppStateContext } from '../context/AppState';
 
 const TypographyDemo = () => {
+  const { setPageTitle } = useContext(AppStateContext);
+  useEffect(() => {
+    setPageTitle('Typography Demo');
+    // return () => { setPageTitle('') }
+  }, [setPageTitle]);
   return (
     <div>
       <p>

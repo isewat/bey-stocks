@@ -1,27 +1,85 @@
 import { useContext } from 'react';
-import { Button } from '@material-ui/core';
+import { Button, Grid, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import { AuthContext } from '../../context/Auth';
+import { useTranslation } from 'react-i18next';
+import { useHistory } from 'react-router';
 
 const useStyles = makeStyles((theme) => ({
-  button: {
+  root: {
     marginLeft: 'auto'
+  },
+  gridContainer: {
+    flexGrow: 1
   }
 }));
 
-const AuthButton = ({ onClick = () => { } }) => {
+const AuthButton = () => {
+  const { t } = useTranslation();
   const classes = useStyles();
-  const { user } = useContext(AuthContext);
+  const history = useHistory();
+  const { user, signOut } = useContext(AuthContext);
 
-  return (
-    <Button
-      className={classes.button}
-      color="secondary"
-      variant="contained"
-    >
-      {user ? 'Logout' : 'Login'}
-    </Button>
-  )
+  if (user) {
+    return (
+      <div className={classes.root}>
+        <Grid container spacing={2} className={classes.gridContainer}>
+          <Grid item xs={12}>
+            <Grid container justifyContent="center" spacing={2}>
+              <Grid item>
+                <Typography>{user.email}</Typography>
+              </Grid>
+              <Grid item >
+                <Button
+                  color="secondary"
+                  variant="contained"
+                  onClick={signOut}
+                >
+                  {t('auth.signOutButton')}
+                </Button>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Grid >
+      </div>
+    )
+  } else {
+    return (
+      <div className={classes.root}>
+        <Grid container spacing={2} className={classes.gridContainer}>
+          <Grid item xs={12}>
+            <Grid container justifyContent="center" spacing={2}>
+              <Grid item >
+                <Button
+                  color="secondary"
+                  variant="contained"
+                  onClick={() => {
+                    history.push('/signup')
+                  }}
+                >
+                  {t('auth.signUpButton')}
+                </Button>
+              </Grid>
+              <Grid item >
+                <Button
+                  color="secondary"
+                  variant="contained"
+                  onClick={() => {
+                    history.push('/signin')
+                  }}
+                >
+                  {t('auth.signInButton')}
+                </Button>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Grid >
+      </div>
+
+    )
+  }
+
+
 }
 
 export default AuthButton;

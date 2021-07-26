@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useReducer } from 'react';
+import { createContext, useEffect, useReducer } from 'react';
 import firebase from '../services/firebase';
 
 export const AuthContext = createContext();

@@ -21,8 +21,7 @@ const MainAppBar = ({ offset = 0, pageTitle }) => {
       color="primary"
     >
       <Toolbar>
-        <Typography variant="h5">{pageTitle || '[Page title]'}</Typography>
-        {/* <Typography>{user?.email || 'Not logged in'}</Typography> */}
+        <Typography variant="h5">{pageTitle}</Typography>
         <AuthButton />
       </Toolbar>
     </AppBar>
