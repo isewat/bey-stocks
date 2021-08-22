@@ -7,8 +7,7 @@ const TypographyDemo = () => {
   const { setPageTitle } = useContext(AppStateContext);
   useEffect(() => {
     setPageTitle('Typography Demo');
-    // return () => { setPageTitle('') }
-  }, [setPageTitle]);
+  }, []);
   return (
     <div>
       <p>

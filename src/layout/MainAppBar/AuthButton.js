@@ -33,7 +33,7 @@ const AuthButton = () => {
                 <Button
                   color="secondary"
                   variant="contained"
-                  onClick={signOut}
+                  onClick={() => { signOut(); history.push('/') }}
                 >
                   {t('auth.signOutButton')}
                 </Button>

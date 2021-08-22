@@ -10,7 +10,7 @@ export default function PrivateDemo() {
   useEffect(() => {
     setPageTitle('Private Demo');
     // return () => { setPageTitle('') }
-  }, [setPageTitle]);
+  }, []);
 
   useEffect(() => {
     const getToken = async () => {

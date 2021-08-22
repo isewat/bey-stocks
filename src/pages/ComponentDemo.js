@@ -48,7 +48,7 @@ const ComponentDemo = () => {
   useEffect(() => {
     setPageTitle('Component Demo');
     // return () => { setPageTitle('') }
-  }, [setPageTitle]);
+  }, []);
   return (
     <div>
       <Typography variant="h4" className={classes.containerTitle}>Buttons</Typography>

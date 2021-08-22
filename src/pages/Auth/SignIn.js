@@ -4,15 +4,22 @@ import { Formik } from 'formik';
 import { AuthContext } from '../../context/Auth';
 import { useStyles } from './styles';
 import { useTranslation } from 'react-i18next';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useLocation } from 'react-router-dom';
+import urlencode from 'urlencode';
+import queryString from 'query-string';
 
 const SignIn = () => {
   const classes = useStyles();
   const { t } = useTranslation();
   const { user, isAuthenticating, signIn, authError } = useContext(AuthContext);
+  const location = useLocation();
+  const q = queryString.parse(location.search);
+
+  const redirectUrl = q.redirect_url && q.redirect_url.length > 0 ? urlencode.decode(q.redirect_url) : '/';
+  console.log({ location, redirectUrl })
 
   if (user) return (
-    <Redirect to="/" />
+    <Redirect to={redirectUrl} />
   );
   return (
     <Paper elevation={6} className={classes.root}>
