@@ -36,3 +36,51 @@
     transform: rotate(360deg);
   }
 }
+
+#button1 {
+  background: #282c34;
+  color: #fff;
+  border: 0;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-bottom: 15px;
+  margin-right: 30px;
+  margin-top: 15px;
+  margin-left: 20px;
+  float: left;
+}
+
+.stockname {
+  margin-bottom: 15px;
+}
+
+.ordertype {
+  margin-right: 15px;
+}
+
+.stock-details {
+  margin-bottom: 20px;
+}
+
+#button2 {
+  background: #1e8cb8;
+  color: #fff;
+  border: 0;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  float: left;
+  margin-top: 2%;
+
+}
+
+#select {
+  width: 100px;
+}
+
+.charts {
+  display: flex;
+  text-align: center;
+  
+}

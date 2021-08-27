@@ -7,6 +7,9 @@ import SignUp from '../pages/Auth/SignUp';
 import SignIn from '../pages/Auth/SignIn';
 import PrivateDemo from '../pages/PrivateDemo';
 import AuthLayout from '../layout/AuthLayout';
+import Depot from "./pages/Depot";
+import Add from "./pages/Add";
+
 
 const MainRoutes = () => {
   return (
@@ -25,6 +28,12 @@ const MainRoutes = () => {
       </RouteWithLayout>
       <RouteWithLayout auth="private" path="/private">
         <PrivateDemo />
+      </RouteWithLayout>
+      <RouteWithLayout path="/depot">
+        <Depot></Depot>
+      </RouteWithLayout>
+      <RouteWithLayout path="/add">
+        <Add />
       </RouteWithLayout>
     </Switch>
   )

@@ -1,0 +1,84 @@
+{
+  "stocks": [
+    {
+      "name": "Amazon",
+      "volume": "4",
+      "price": "2795",
+      "ordertype": "buy",
+      "total": 11180,
+      "id": 5
+    },
+    {
+      "name": "Alfen",
+      "volume": "10",
+      "price": "80",
+      "ordertype": "buy",
+      "total": 800,
+      "id": 6
+    },
+    {
+      "name": "Apple ",
+      "volume": "50",
+      "price": "120",
+      "ordertype": "buy",
+      "total": 6000,
+      "id": 7
+    },
+    {
+      "name": "Cellink",
+      "volume": "10",
+      "price": "100",
+      "ordertype": "buy",
+      "total": 1000,
+      "id": 8
+    },
+    {
+      "name": "Walmart",
+      "volume": "20",
+      "price": "90",
+      "ordertype": "buy",
+      "total": 1800,
+      "id": 9
+    },
+    {
+      "name": "Appleq",
+      "volume": "10",
+      "price": "100",
+      "ordertype": "sell",
+      "total": 1000,
+      "id": 10
+    },
+    {
+      "name": "tencent",
+      "volume": 100,
+      "price": 50,
+      "ordertype": "buy",
+      "total": 5000,
+      "id": 11
+    },
+    {
+      "name": "Tencent",
+      "volume": 10,
+      "price": 100,
+      "ordertype": "buy",
+      "total": 1000,
+      "id": 12
+    },
+    {
+      "name": "Banane",
+      "volume": 50,
+      "price": 1,
+      "ordertype": "buy",
+      "total": 50,
+      "id": 13
+    },
+    {
+      "name": "Banenen",
+      "volume": 200,
+      "price": 2,
+      "ordertype": "buy",
+      "total": 405,
+      "id": 14
+    }
+  ]
+}
