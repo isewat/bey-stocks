@@ -41,7 +41,7 @@
       "id": 9
     },
     {
-      "name": "Appleq",
+      "name": "Apple",
       "volume": "10",
       "price": "100",
       "ordertype": "sell",
@@ -49,7 +49,7 @@
       "id": 10
     },
     {
-      "name": "tencent",
+      "name": "Tencent",
       "volume": 100,
       "price": 50,
       "ordertype": "buy",
