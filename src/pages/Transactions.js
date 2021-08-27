@@ -85,7 +85,7 @@ export default function StickyHeadTable() {
 
 
   useEffect(() => {
-    fetch("http://localhost:8000/stocks")
+    fetch("http://localhost:4850/stocks")
       .then(res => {
         return res.json()
       })
@@ -137,7 +137,7 @@ export default function StickyHeadTable() {
                 ))}
               </TableRow>
             </TableHead>
-             <TableBody>
+            <TableBody>
               {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
                 return (
                   <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>

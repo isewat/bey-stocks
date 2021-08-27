@@ -25,4 +25,20 @@ export const menuItems = [
       pathname: '/private',
     }
   },
+  {
+    text: 'Depot',
+    icon: <LockOpenIcon color="primary" />,
+    private: false,
+    location: {
+      pathname: '/depot',
+    }
+  },
+  {
+    text: 'Transaktionen',
+    icon: <LockOpenIcon color="primary" />,
+    private: false,
+    location: {
+      pathname: '/transactions',
+    }
+  },
 ];

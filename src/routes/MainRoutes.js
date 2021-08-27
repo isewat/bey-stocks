@@ -7,8 +7,9 @@ import SignUp from '../pages/Auth/SignUp';
 import SignIn from '../pages/Auth/SignIn';
 import PrivateDemo from '../pages/PrivateDemo';
 import AuthLayout from '../layout/AuthLayout';
-import Depot from "./pages/Depot";
-import Add from "./pages/Add";
+import Depot from "../pages/Depot";
+import Add from "../pages/Add";
+import StickyHeadTable from '../pages/Transactions';
 
 
 const MainRoutes = () => {
@@ -30,7 +31,10 @@ const MainRoutes = () => {
         <PrivateDemo />
       </RouteWithLayout>
       <RouteWithLayout path="/depot">
-        <Depot></Depot>
+        <Depot />
+      </RouteWithLayout>
+      <RouteWithLayout path="/transactions">
+        <StickyHeadTable />
       </RouteWithLayout>
       <RouteWithLayout path="/add">
         <Add />
